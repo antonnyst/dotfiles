@@ -1,0 +1,7 @@
+#!/bin/sh
+path=$1
+if [ -z $path ]
+then
+	path=$(cat "$HOME/.wallpaperscript")
+fi
+feh --recursive --randomize --no-fehbg --bg-fill --no-xinerama $path

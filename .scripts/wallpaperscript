@@ -1,0 +1,40 @@
+#!/bin/bash
+
+query_selection() {
+	options=$(ls $directory -pXr1)
+	pdir=$(basename "$directory") #$(realpath --relative-to="$HOME" "$directory")	
+	if [ "$rootdir" != "$directory" ] 
+	then
+		options=$(echo -e "../\n$options")
+	fi
+	selection=$(echo "$options" | rofi -dmenu -p "$pdir")
+}
+
+#root dir
+rootdir="$HOME/Bilder/wallpapers"
+
+#start dir
+directory=$(dirname $(cat "$HOME/.wallpaperscript"))
+
+if [ -z $directory ] 
+then
+	directory="$rootdir"
+fi
+
+query_selection
+
+while [[ !"$selection" == */ ]]
+do
+	directory=$(realpath "$directory/$selection")
+	query_selection
+done
+
+if [ -z "$selection" ] 
+then 
+	echo "No selection"
+else	
+	echo "$directory/$selection" > $HOME/.wallpaperscript
+	/bin/bash $HOME/.fehbg "$directory/$selection"
+	betterlockscreen -u "$directory/$selection" --blur 0 --span --display 1
+	notify-send "Lockscreen" "Render done"
+fi
