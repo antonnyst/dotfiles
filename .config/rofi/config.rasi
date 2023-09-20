@@ -1,0 +1,7 @@
+configuration {
+  modi: "drun";
+  font: "Gothic 12";
+}
+
+element-icon { size: 1.85ch; }
+@theme "/usr/share/rofi/themes/gitdark.rasi"
