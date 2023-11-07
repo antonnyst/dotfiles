@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=ncspot
+Comment=Cross-platform ncurses Spotify client written in Rust
+TryExec=ncspot
+Exec=bash -c "~/.scripts/ncspot.sh"
+
+
+##bash -c "i3-msg 'mark ncspot, move scratchpad' && ncspot"
+Icon=ncspot
+Terminal=true
+Categories=AudioVideo;Audio;Player;ConsoleOnly
+Keywords=spotify;music;player

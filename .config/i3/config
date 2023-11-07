@@ -140,11 +140,13 @@ bindsym Mod4+minus scratchpad show
 
 # Specific scratchpads
 bindsym Mod4+z [title="Discord"] scratchpad show
-bindsym Mod4+x [title="ncspot"] scratchpad show
+
+bindsym Mod4+x [con_mark="ncspot"] scratchpad show
+
 bindsym Mod4+c [class="TelegramDesktop"] scratchpad show 
 
 # Default float
-
+for_window [class="com-atlauncher-App"] floating enable
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -222,12 +224,16 @@ bindsym Mod4+m move workspace to output right
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+	id bar-primary
 	i3bar_command i3bar
 	status_command i3status
 	
+	tray_output none
+
 	bindsym button4 nop
 	bindsym button5 nop
 	strip_workspace_numbers yes 
+
 	colors {
 		background #0d1117
 		statusline #c9d1d9
@@ -241,14 +247,44 @@ bar {
 	}	
 }
 
+bar {
+	id bar-tray
+	i3bar_command i3bar
+	 
+	
+	output primary
+
+	tray_output primary
+	mode hide
+	modifier Mod4
+
+	colors {
+		background #0d1117
+		statusline #c9d1d9
+		separator  #454947
+		
+		focused_workspace  #58a6ff #58a6ff #0d1117
+		active_workspace   #0d1117 #0d1117 #c9d1d9
+		inactive_workspace #0d1117 #0d1117 #c9d1d9
+		binding_mode       #58a6ff #58a6ff #0d1117
+		urgent_workspace   #ff7b72 #ff7b72 #0d1117
+	}
+}
 
 
-
-
+# Wallpaper switching bind
 bindsym Mod4+shift+w exec ~/.scripts/wallpaperscript
-
-bindsym --release Mod4+Print exec --no-startup-id import /tmp/latest-screenshot.png
-
-exec --no-startup-id picom -b
+# Wallpaper
 exec --no-startup-id ~/.fehbg
+
+# Screenshot
+bindsym --release Print exec --no-startup-id scrot -l color="#58a6ff" -s -f ~/Pictures/screenshots/latest.png
+
+# Compositor
+exec --no-startup-id picom -b
+
+# Autostart ncspot in scratchpad
+exec --no-startup-id alacritty -e bash -c "~/.scripts/ncspot.sh"
+
+
 

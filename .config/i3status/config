@@ -16,13 +16,13 @@ general {
 
 # order += "ipv6"
 order += "cpu_usage"
-order += "memory"
+# order += "memory"
 # order += "disk /home"
-order += "wireless _first_"
-order += "ethernet _first_"
+#order += "wireless _first_"
+#order += "ethernet _first_"
 order += "battery all"
 # order += "load"
-order += "disk /"
+#order += "disk /"
 order += "tztime local"
 
 volume master {
@@ -34,7 +34,9 @@ volume master {
 }
 
 cpu_usage {
-        format = "  %usage "
+        format = ""
+	max_threshold = 75
+	format_above_threshold = " %usage "
 }
 
 load {
