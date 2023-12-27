@@ -4,4 +4,4 @@ configuration {
 }
 
 element-icon { size: 1.85ch; }
-@theme "/usr/share/rofi/themes/gitdark.rasi"
+@theme "gitdark.rasi"
