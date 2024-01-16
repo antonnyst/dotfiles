@@ -1,0 +1,33 @@
+#!/bin/bash
+
+BAT=$(acpi -b | grep -E -o '[0-9][0-9][0-9]?%')
+
+PRE=$(acpi -b | grep -o 'Discharging\|Full\|Charging')
+
+if [ $PRE = "Discharging" ]
+then
+  	ICON="☉"
+fi
+
+if [ $PRE = "Full" ]
+then
+  	ICON="⚡"
+fi
+
+if [ $PRE = "Charging" ] 
+then
+  	ICON="⚡"
+fi
+
+
+# Full and short texts
+echo "$ICON $BAT"
+echo "$ICON $BAT"
+
+
+
+# Set urgent flag below 5% or use orange below 20%
+[ ${BAT%?} -le 5 ] && echo "#FF0000" && exit 0
+[ ${BAT%?} -le 25 ] && echo "#FF8000"
+
+exit 0

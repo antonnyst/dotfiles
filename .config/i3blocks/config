@@ -1,0 +1,9 @@
+
+command=~/.config/i3blocks/$BLOCK_NAME
+
+[battery]
+interval=5
+
+[time]
+command=date +"%Y-%m-%d %H:%M:%S "
+interval=1
