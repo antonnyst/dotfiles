@@ -11,7 +11,7 @@ query_selection() {
 }
 
 #root dir
-rootdir="$HOME/Bilder/wallpapers"
+rootdir="$HOME/Pictures/wallpapers"
 
 #start dir
 directory=$(dirname $(cat "$HOME/.wallpaperscript"))
