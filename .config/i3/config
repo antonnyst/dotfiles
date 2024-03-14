@@ -147,6 +147,8 @@ bindsym $mod+c [class="TelegramDesktop"] scratchpad show
 
 # Default float
 for_window [class="com-atlauncher-App"] floating enable
+for_window [class="steam"] floating enable
+fot_window [class="steam title="^Steam$"] floating disable
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
