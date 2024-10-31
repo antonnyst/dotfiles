@@ -141,14 +141,14 @@ bindsym $mod+minus scratchpad show
 # Specific scratchpads
 bindsym $mod+z [title="Discord"] scratchpad show
 
-bindsym $mod+x [con_mark="ncspot"] scratchpad show
+bindsym $mod+x [con_mark="ncspot"] scratchpad show, resize set 45 ppt 70 ppt 
 
 bindsym $mod+c [class="TelegramDesktop"] scratchpad show 
 
 # Default float
 for_window [class="com-atlauncher-App"] floating enable
 for_window [class="steam"] floating enable
-fot_window [class="steam title="^Steam$"] floating disable
+for_window [class="steam" title="^Steam$"] floating disable
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -291,6 +291,7 @@ bindsym $mod+shift+w exec ~/.scripts/wallpaperscript
 # Wallpaper
 exec --no-startup-id ~/.fehbg
 
+
 # Screenshot
 bindsym --release Print exec --no-startup-id scrot -l color="#58a6ff" -s -f ~/Pictures/screenshots/latest.png
 
@@ -302,6 +303,7 @@ exec --no-startup-id alacritty -e bash -c "~/.scripts/ncspot.sh"
 
 # Dunst
 exec --no-startup-id dunst
+bindsym $mod+Tab exec dunstctl close
 
 # Bluetooth
 
