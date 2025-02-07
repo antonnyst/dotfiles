@@ -1,0 +1,4 @@
+theme = "banger_theme"
+
+[editor]
+line-number = "relative"
