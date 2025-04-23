@@ -20,3 +20,6 @@ style = "Regular"
 
 [window]
 opacity = 0.95
+
+[keyboard]
+bindings = [{ key = "Return", mods = "Alt", action = "SpawnNewInstance"}]
