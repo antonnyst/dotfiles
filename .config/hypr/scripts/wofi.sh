@@ -4,5 +4,5 @@ EXISTS=$(hyprctl clients -j | jq -r '.[] | .title | select(. == "drun") | length
 if [ "$EXISTS" = "true" ]; then
   hyprctl dispatch focuswindow title:drun
 else
-  wofi --show drun -e
+  wofi --show drun
 fi
