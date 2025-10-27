@@ -1,0 +1,9 @@
+height=300
+width=400
+normal_window=true
+allow_images=true
+no_actions=true
+exec_search=true
+term=alacritty
+dynamic_lines=true
+use_search_box=false
