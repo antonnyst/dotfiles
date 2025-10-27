@@ -1,0 +1,8 @@
+font="SourceCodePro 10"
+background-color=#0d1117ee
+text-color=#c9d1d9ee
+border-color=#222222ee
+
+anchor=top-center
+max-visible=1
+default-timeout=15000
